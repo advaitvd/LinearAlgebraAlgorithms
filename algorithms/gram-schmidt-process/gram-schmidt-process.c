@@ -29,10 +29,10 @@ double **gram_schmidt_process(double **Matrix, int n, int m){
 		for(int k=0; k<n; k++){
 			vector_i[k] = B[k][i];
 		}
-		// For subtract the components of all the orthogonal vectors found so far from column vector i
+		// Subtract the components of all the orthogonal vectors found so far from column vector_i
 		for (int j=0; j<i; j++){
 			dot_product = 0;
-			// calculate the projection (dot product) of column vector i with the jth basis vector.
+			// calculate the projection (dot product) of column vector_i with the jth basis vector.
 			for (int k=0; k<n; k++){
 				dot_product += vector_i[k] * B[k][j];
 			}
@@ -43,7 +43,7 @@ double **gram_schmidt_process(double **Matrix, int n, int m){
 		}
 		// get the norm of the vector_i
 		norm_vector_i = norm(vector_i, n);
-		// Normalize the vector i if possible.
+		// Normalize vector_i if possible.
 		if (norm_vector_i > very_small_number){
 			for (int k=0; k<n; k++){
 				B[k][i] = vector_i[k] / norm_vector_i;
